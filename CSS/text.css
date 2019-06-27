@@ -1,0 +1,26 @@
+body {
+    background-color: #feeed6;
+    color: #676565;
+    font-family: sans-serif;
+}
+body > * {
+    margin-block-start: 10px;
+    margin-block-end: 10px;
+}
+#contents {
+    margin-block-start: 14px;
+    margin-block-end: -2px;
+}
+#contents ~ p {
+    font-size: 15px;
+    line-height: 1.4em;
+    text-indent: 1em;
+}
+#header {
+    margin-block-start: -2px;
+    margin-block-end: 11px;
+    font-size: 27px;
+}
+strong {
+    color: #378db2;
+}
