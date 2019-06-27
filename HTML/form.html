@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Page with form</title>
+</head>
+<body>
+    <h3>Form</h3>
+    <form action="form.html" method="get">
+        <p>
+            <label>
+                Text input
+                <input type="text" name="text-input" placeholder="Enter text...">
+            </label>
+        </p>
+
+        <p>
+            <label>
+                Textarea
+                <br>
+                <textarea name="textarea" rows="1">Lots of text</textarea>
+            </label>
+        </p>
+
+        <p>
+            <label>
+                Check me
+                <input type="checkbox" name="check-me">
+            </label>
+            <label>
+                Don't uncheck
+                <input type="checkbox" name="dont-uncheck" checked="checked">
+            </label>
+        </p>
+
+        <h5>Group of radio-buttons</h5>
+        <p>
+            <label>
+                First
+                <input type="radio" name="radio-buttons" value="first">
+            </label>
+            <label>
+                Second
+                <input type="radio" name="radio-buttons" value="second" checked="checked">
+            </label>
+            <label>
+                Third
+                <input type="radio" name="radio-buttons" value="third">
+            </label>
+        </p>
+
+        <p>
+            <label>
+                Single-option select
+                <select name="single-option-select">
+                    <option value="first">First</option>
+                    <option value="second">Second</option>
+                    <option value="third">Third</option>
+                </select>
+            </label>
+        </p>
+
+        <p>
+            <label>
+                Multi-option select
+                <br>
+                <select size="2" multiple="multiple" name="multi-option-select">
+                    <option value="first">First</option>
+                    <option value="second">Second</option>
+                    <option value="third">Third</option>
+                </select>
+            </label>
+        </p>
+
+        <p>
+            <button type="submit">Submit</button>
+        </p>
+    </form>
+
+    <h6><a href="table-and-other.html">Go to another page &rarr;</a></h6>
+</body>
+</html>
