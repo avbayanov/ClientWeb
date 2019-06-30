@@ -20,10 +20,11 @@ body > * {
     text-indent: 1em;
 }
 
-#header {
+h3.header {
     margin-block-start: -2px;
     margin-block-end: 11px;
     font-size: 27px;
+    font-weight: normal;
 }
 
 strong {
