@@ -14,7 +14,13 @@ body > * {
     margin-block-end: -2px;
 }
 
-.contents-header ~ p {
+.contents {
+    margin: 0;
+}
+
+.contents > p {
+    margin-block-start: 0.8em;
+    margin-block-end: 0.8em;
     font-size: 15px;
     line-height: 1.4em;
     text-indent: 1em;
