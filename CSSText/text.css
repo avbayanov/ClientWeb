@@ -9,12 +9,12 @@ body > * {
     margin-block-end: 10px;
 }
 
-#contents {
+.contents-header {
     margin-block-start: 14px;
     margin-block-end: -2px;
 }
 
-#contents ~ p {
+.contents-header ~ p {
     font-size: 15px;
     line-height: 1.4em;
     text-indent: 1em;
