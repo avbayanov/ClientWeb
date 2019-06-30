@@ -4,13 +4,13 @@ body {
     font-family: sans-serif;
 }
 
+div {
+    margin: 0;
+}
+
 .page-block {
     margin: 6px 9px;
     max-width: 720px;
-}
-
-.params {
-    margin: 0;
 }
 
 .params > p {
@@ -28,7 +28,6 @@ body {
 }
 
 .contents {
-    margin: 0;
     font-size: 15px;
     line-height: 1.4em;
     text-indent: 1em;
