@@ -4,7 +4,10 @@ body {
     font-family: sans-serif;
 }
 
-
+.page-block {
+    margin: 6px 9px;
+    max-width: 720px;
+}
 
 .params {
     margin: 0;
