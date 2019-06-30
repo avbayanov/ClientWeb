@@ -4,7 +4,13 @@ body {
     font-family: sans-serif;
 }
 
-body > * {
+
+
+.params {
+    margin: 0;
+}
+
+.params > * {
     margin-block-start: 10px;
     margin-block-end: 10px;
 }
@@ -12,6 +18,10 @@ body > * {
 .contents-header {
     margin-block-start: 14px;
     margin-block-end: -2px;
+}
+
+.params strong, .contents-header strong {
+    color: #378db2;
 }
 
 .contents {
@@ -32,8 +42,4 @@ h3.header {
     margin-block-end: 11px;
     font-size: 27px;
     font-weight: normal;
-}
-
-strong {
-    color: #378db2;
 }
