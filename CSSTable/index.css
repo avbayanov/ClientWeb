@@ -1,0 +1,48 @@
+body {
+    font-family: "Open Sans", sans-serif;
+    font-size: 19px;
+}
+
+.persons {
+    margin: 8px;
+    border-collapse: collapse;
+}
+
+.persons, .persons th, .persons td {
+    border: 1px #ccc solid;
+}
+
+.persons th, .persons td {
+    padding: 12px 9px 11px;
+}
+
+.persons th {
+    text-align: left;
+    font-weight: 600;
+    color: #fff;
+    background-color: #3498db;
+}
+
+.persons td {
+    font-weight: 300;
+}
+
+.persons tr:nth-child(odd) > td {
+    background-color: #eee;
+}
+
+.first-name {
+    width: 134px;
+}
+
+.last-name {
+    width: 132px;
+}
+
+.job-title {
+    width: 251px;
+}
+
+.twitter {
+    width: 156px;
+}
