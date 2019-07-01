@@ -8,11 +8,8 @@ body {
     border-collapse: collapse;
 }
 
-.persons, .persons th, .persons td {
-    border: 1px #ccc solid;
-}
-
 .persons th, .persons td {
+    border: 1px #ccc solid;
     padding: 12px 9px 11px;
 }
 
