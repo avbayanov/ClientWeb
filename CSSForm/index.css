@@ -1,0 +1,63 @@
+body {
+    font-family: sans-serif;
+    color: #676565;
+}
+
+h2.header {
+    font-size: 27px;
+    font-weight: lighter;
+    margin-top: 24px;
+    margin-bottom: 3px;
+}
+
+h2.header, .application-form > * {
+    padding-left: 17px;
+    padding-right: 18px;
+    margin-right: 18px;
+}
+
+.application-form > * {
+    padding-top: 14px;
+}
+
+.application-form {
+    background-color: #feeed6;
+}
+
+.application-form b {
+    font-size: 14px;
+    font-weight: bold;
+}
+.application-form input, .application-form textarea {
+    width: 100%;
+    margin-top: 5px;
+    border: none;
+    padding: 10px;
+    font-size: 15px;
+    font-weight: lighter;
+}
+
+.application-form textarea {
+    height: 92px;
+}
+
+.instructions {
+    font-size: 14px;
+}
+
+.submit-button {
+    width: 150px;
+    margin-left: auto;
+    /*padding-top: 12px;*/
+    /*padding-right: 0;*/
+    /*padding-left: 0;*/
+    padding: 12px 0 14px;
+}
+
+.submit-button button[type="submit"] {
+    width: 100%;
+    height: 32px;
+    border: none;
+    background-color: #378db2;
+    color: #fff;
+}
