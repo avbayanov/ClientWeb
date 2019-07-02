@@ -50,9 +50,6 @@ h2.header, .application-form > * {
 .submit-button {
     width: 150px;
     margin-left: auto;
-    /*padding-top: 12px;*/
-    /*padding-right: 0;*/
-    /*padding-left: 0;*/
     padding: 12px 0 14px;
 }
 
