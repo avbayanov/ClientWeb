@@ -40,6 +40,7 @@ h2.header, .application-form > * {
 
 .application-form textarea {
     height: 92px;
+    resize: vertical;
 }
 
 .instructions {
