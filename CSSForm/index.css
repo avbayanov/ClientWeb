@@ -60,3 +60,8 @@ h2.header, .application-form > * {
     background-color: #378db2;
     color: #fff;
 }
+
+.submit-button button[type="submit"]:hover {
+    background-color: #679bb2;
+    cursor: pointer;
+}
