@@ -22,6 +22,7 @@ h2.header, .application-form > * {
 
 .application-form {
     background-color: #feeed6;
+    max-width: 730px;
 }
 
 .application-form b {
