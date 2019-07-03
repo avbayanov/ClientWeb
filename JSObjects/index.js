@@ -70,12 +70,13 @@ function getTotalPopulationOfCountry(country) {
 }
 
 function getCountriesWithTotalPopulation(countriesWithCities) {
-    return countriesWithCities.map(function (value) {
-        return {
-            name: value.name,
-            totalPopulation: getTotalPopulationOfCountry(value)
-        };
-    });
+    return countriesWithCities.reduce(function (accumulator, currentValue) {
+        if (accumulator === 0) {
+            accumulator = {};
+        }
+        accumulator[currentValue.name] = getTotalPopulationOfCountry(currentValue);
+        return accumulator;
+    }, 0);
 }
 
 console.log("countries with their total population: ", getCountriesWithTotalPopulation(countriesWithCities));
