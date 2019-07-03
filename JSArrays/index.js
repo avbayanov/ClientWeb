@@ -38,10 +38,9 @@ var arrayFromOneToHundred = Array.from(Array(101).keys());
 arrayFromOneToHundred.splice(0, 1);
 
 function getSquaresOfEvenNumbers(array) {
-    var arrayOfEvenNumbers = array.filter(function (value) {
+    return array.filter(function (value) {
         return value % 2 === 0;
-    });
-    return arrayOfEvenNumbers.map(function (value) {
+    }).map(function (value) {
         return Math.pow(value, 2)
     });
 }
