@@ -34,8 +34,10 @@ function getSumOfEvenNumbersInArray(array) {
 
 console.log("sum of even numbers in array: ", getSumOfEvenNumbersInArray(array));
 
-var arrayFromOneToHundred = Array.from(Array(101).keys());
-arrayFromOneToHundred.splice(0, 1);
+var arrayFromOneToHundred = [];
+for (var i = 1; i <= 100; i++) {
+    arrayFromOneToHundred.push(i);
+}
 
 function getSquaresOfEvenNumbers(array) {
     return array.filter(function (value) {
