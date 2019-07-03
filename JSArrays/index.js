@@ -23,7 +23,7 @@ function getLastFiveElementsOfArray(array) {
 console.log("last five elements of array: ", getLastFiveElementsOfArray(array));
 
 function getSumOfEvenNumbersInArray(array) {
-    return array.reduce(function(accumulator, currentValue) {
+    return array.reduce(function (accumulator, currentValue) {
         if (currentValue % 2 === 0) {
             accumulator += currentValue;
         }
