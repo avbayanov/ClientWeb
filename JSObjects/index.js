@@ -72,9 +72,9 @@ function getTotalPopulationOfCountry(country) {
 function getCountriesWithTotalPopulation(countriesWithCities) {
     var result = {};
 
-    for (var i = 0; i < countriesWithCities.length; i++) {
-        result[countriesWithCities[i].name] = getTotalPopulationOfCountry(countriesWithCities[i]);
-    }
+    countriesWithCities.forEach(function (value) {
+        result[value.name] = getTotalPopulationOfCountry(value);
+    });
 
     return result;
 }
