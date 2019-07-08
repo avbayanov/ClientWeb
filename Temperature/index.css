@@ -19,6 +19,12 @@ body {
     width: 80px;
 }
 
+#nan-message {
+    font-size: 15px;
+    font-style: italic;
+    color: #c00;
+}
+
 .button-block {
     padding: 9px;
     height: 40px;
