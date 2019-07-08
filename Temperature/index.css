@@ -15,11 +15,11 @@ body {
     padding: 9px;
 }
 
-#celsius-input {
+.celsius-input {
     width: 80px;
 }
 
-#nan-message {
+.nan-message {
     font-size: 15px;
     font-style: italic;
     color: #c00;
