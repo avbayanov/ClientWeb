@@ -16,7 +16,7 @@
         convertButton.addEventListener("click", convertButtonClickHandler);
 
         celsiusInput.addEventListener("keydown", function (event) {
-            if (event.key === "Enter") {
+            if (event.keyCode === 13) {
                 convertButtonClickHandler();
             }
         })
