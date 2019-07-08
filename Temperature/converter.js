@@ -31,11 +31,11 @@
     }
 
     function updateKelvinText(kelvin) {
-        kelvinText.innerText = kelvin;
+        kelvinText.innerText = kelvin.toFixed(2);
     }
 
     function updateFahrenheitText(fahrenheit) {
-        fahrenheitText.innerText = fahrenheit;
+        fahrenheitText.innerText = fahrenheit.toFixed(2);
     }
 
     function setResultBlocksDisplay(display) {
