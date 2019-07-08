@@ -22,7 +22,7 @@
         })
     });
 
-    function convertToKelvin(celsius){
+    function convertToKelvin(celsius) {
         return celsius - 273.15;
     }
 
