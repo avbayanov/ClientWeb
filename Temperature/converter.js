@@ -3,12 +3,14 @@
     var nanMessage;
     var kelvinText;
     var fahrenheitText;
+    var resultBlocks;
 
     document.addEventListener("DOMContentLoaded", function () {
         celsiusInput = document.getElementById("celsius-input");
         nanMessage = document.getElementById("nan-message");
         kelvinText = document.getElementById("kelvin-text");
         fahrenheitText = document.getElementById("fahrenheit-text");
+        resultBlocks = document.getElementsByClassName("result-block");
 
         var convertButton = document.getElementById("convert-button");
         convertButton.addEventListener("click", convertButtonClickHandler);
@@ -36,16 +38,24 @@
         fahrenheitText.innerText = fahrenheit;
     }
 
+    function setResultBlocksDisplay(display) {
+        for (var i = 0; i < resultBlocks.length; i++) {
+            resultBlocks[i].style.display = display;
+        }
+    }
+
     function convertButtonClickHandler() {
         var toKelvin = convertToKelvin(celsiusInput.value);
 
         if (isNaN(toKelvin)) {
             nanMessage.style.display = "inline";
+            setResultBlocksDisplay("none");
             return;
         }
         nanMessage.style.display = "none";
 
         updateKelvinText(toKelvin);
         updateFahrenheitText(convertToFahrenheit(celsiusInput.value));
+        setResultBlocksDisplay("inline-block");
     }
 })();
