@@ -88,6 +88,7 @@ body {
 
 .note-edit > a {
     text-decoration: none;
+    cursor: pointer;
 }
 
 .note > textarea {
@@ -96,11 +97,11 @@ body {
     flex: auto;
 }
 
-.edit-button, .cancel-button:hover, .save-button:hover {
+.edit-button, .cancel-button:hover, .save-button:hover, .delete-button:hover {
     color: darkblue;
 }
 
-.edit-button:hover, .cancel-button {
+.edit-button:hover, .cancel-button, .delete-button {
     color: darkred;
 }
 

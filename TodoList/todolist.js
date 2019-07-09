@@ -30,15 +30,24 @@
             "<div class=\"note-text\">" +
             "</div>" +
             "<div class=\"note-edit\">" +
-            "<a href=\"#\" class=\"edit-button\">&#9998;</a>" +
+            "<a class=\"edit-button\">&#9998;</a><br>" +
+            "<a class=\"delete-button\">&#10007;</a>" +
             "</div>";
 
         newNoteNode.children[0].textContent = newNoteContent;
-        newNoteNode.children[1].children[0].addEventListener("click",
-            editNoteButtonHandler.bind("", newNoteNode, newNoteNode.children[0], newNoteNode.children[1]));
+        setEditButtonsHandlers(newNoteNode, newNoteNode.children[0], newNoteNode.children[1]);
 
         notesDiv.appendChild(newNoteNode);
         newNoteInput.value = "";
+    }
+
+    function setEditButtonsHandlers(noteNode, noteTextNode, noteEditNode) {
+        noteEditNode.children[0].addEventListener("click",
+            editNoteButtonHandler.bind("", noteNode, noteTextNode, noteEditNode));
+
+        noteEditNode.children[2].addEventListener("click", function () {
+            noteNode.parentNode.removeChild(noteNode);
+        });
     }
 
     function editNoteButtonHandler(noteNode, noteTextNode, noteEditNode) {
@@ -50,18 +59,18 @@
         textareaNoteNode.textContent = text;
 
         noteEditNode.innerHTML =
-            "<a href=\"#\" class=\"cancel-button\">&#10007;</a><br>" +
-            "<a href=\"#\" class=\"save-button\">&#10003;</a>";
+            "<a class=\"cancel-button\">&#10007;</a><br>" +
+            "<a class=\"save-button\">&#10003;</a>";
 
         noteEditNode.children[0].addEventListener("click",
-            doneEditNoteButtonHandler.bind("", noteNode, textareaNoteNode, noteEditNode));
+            doneEditNoteHandler.bind("", noteNode, textareaNoteNode, noteEditNode));
 
         function saveNote() {
             if (textareaNoteNode.value === "") {
                 return;
             }
             textareaNoteNode.textContent = textareaNoteNode.value;
-            doneEditNoteButtonHandler(noteNode, textareaNoteNode, noteEditNode);
+            doneEditNoteHandler(noteNode, textareaNoteNode, noteEditNode);
         }
 
         noteEditNode.children[2].addEventListener("click", function () {
@@ -78,7 +87,7 @@
         noteNode.prepend(textareaNoteNode);
     }
 
-    function doneEditNoteButtonHandler(noteNode, textareaNoteNode, noteEditNode) {
+    function doneEditNoteHandler(noteNode, textareaNoteNode, noteEditNode) {
         var text = textareaNoteNode.textContent;
 
         noteNode.removeChild(textareaNoteNode);
@@ -87,10 +96,11 @@
         noteTextNode.classList.add("note-text");
         noteTextNode.textContent = text;
 
-        noteEditNode.innerHTML = "<a href=\"#\" class=\"edit-button\">&#9998;</a>";
+        noteEditNode.innerHTML =
+            "<a class=\"edit-button\">&#9998;</a><br>" +
+            "<a class=\"delete-button\">&#10007;</a>";
 
-        noteEditNode.children[0].addEventListener("click",
-            editNoteButtonHandler.bind("", noteNode, noteTextNode, noteEditNode));
+        setEditButtonsHandlers(noteNode, noteTextNode, noteEditNode);
 
         noteNode.prepend(noteTextNode);
     }
