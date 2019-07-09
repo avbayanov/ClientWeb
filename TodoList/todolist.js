@@ -1,0 +1,97 @@
+(function () {
+    var newNoteInput;
+    var notesDiv;
+
+    document.addEventListener("DOMContentLoaded", function () {
+        newNoteInput = document.getElementById("new-note-input");
+        notesDiv = document.getElementById("notes");
+
+        var addNoteButton = document.getElementById("add-note-button");
+        addNoteButton.addEventListener("click", addNoteButtonHandler);
+
+        newNoteInput.addEventListener("keydown", function (event) {
+            if (event.keyCode === 13 || event.key === "Enter") {
+                event.preventDefault();
+                addNoteButtonHandler();
+            }
+        })
+    });
+
+    function addNoteButtonHandler() {
+        var newNoteContent = newNoteInput.value;
+        if (newNoteContent === "") {
+            return;
+        }
+
+        var newNoteNode = document.createElement("div");
+        newNoteNode.classList.add("note");
+
+        newNoteNode.innerHTML =
+            "<div class=\"note-text\">" +
+            "</div>" +
+            "<div class=\"note-edit\">" +
+            "<a href=\"#\" class=\"edit-button\">&#9998;</a>" +
+            "</div>";
+
+        newNoteNode.children[0].textContent = newNoteContent;
+        newNoteNode.children[1].children[0].addEventListener("click",
+            editNoteButtonHandler.bind("", newNoteNode, newNoteNode.children[0], newNoteNode.children[1]));
+
+        notesDiv.appendChild(newNoteNode);
+        newNoteInput.value = "";
+    }
+
+    function editNoteButtonHandler(noteNode, noteTextNode, noteEditNode) {
+        var text = noteTextNode.textContent;
+
+        noteNode.removeChild(noteTextNode);
+
+        var textareaNoteNode = document.createElement("textarea");
+        textareaNoteNode.textContent = text;
+
+        noteEditNode.innerHTML =
+            "<a href=\"#\" class=\"cancel-button\">&#10007;</a><br>" +
+            "<a href=\"#\" class=\"save-button\">&#10003;</a>";
+
+        noteEditNode.children[0].addEventListener("click",
+            doneEditNoteButtonHandler.bind("", noteNode, textareaNoteNode, noteEditNode));
+
+        function saveNote() {
+            if (textareaNoteNode.value === "") {
+                return;
+            }
+            textareaNoteNode.textContent = textareaNoteNode.value;
+            doneEditNoteButtonHandler(noteNode, textareaNoteNode, noteEditNode);
+        }
+
+        noteEditNode.children[2].addEventListener("click", function () {
+            saveNote();
+        });
+
+        textareaNoteNode.addEventListener("keydown", function (event) {
+            if (event.keyCode === 13 || event.key === "Enter") {
+                event.preventDefault();
+                saveNote();
+            }
+        });
+
+        noteNode.prepend(textareaNoteNode);
+    }
+
+    function doneEditNoteButtonHandler(noteNode, textareaNoteNode, noteEditNode) {
+        var text = textareaNoteNode.textContent;
+
+        noteNode.removeChild(textareaNoteNode);
+
+        var noteTextNode = document.createElement("div");
+        noteTextNode.classList.add("note-text");
+        noteTextNode.textContent = text;
+
+        noteEditNode.innerHTML = "<a href=\"#\" class=\"edit-button\">&#9998;</a>";
+
+        noteEditNode.children[0].addEventListener("click",
+            editNoteButtonHandler.bind("", noteNode, noteTextNode, noteEditNode));
+
+        noteNode.prepend(noteTextNode);
+    }
+})();

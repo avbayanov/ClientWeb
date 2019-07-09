@@ -1,0 +1,109 @@
+body {
+    font-family: sans-serif;
+    font-size: 18px;
+}
+
+.header {
+    position: fixed;
+    width: 100%;
+    background-color: #fff;
+    z-index: 100;
+}
+
+.header h3 {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin: 5px 9px;
+}
+
+.main-block {
+    max-width: 500px;
+}
+
+.sub-block {
+    padding: 6px;
+}
+
+.field {
+    display: flex;
+    box-sizing: border-box;
+    max-width: 500px;
+    padding-bottom: 2px;
+}
+
+.new-note, .add-note {
+    box-sizing: border-box;
+}
+
+.new-note {
+    flex: 1 1 auto;
+    padding-right: 2px;
+}
+
+.add-note {
+    flex: 0 0 100px;
+    padding-left: 2px;
+}
+
+.new-note > textarea {
+    box-sizing: border-box;
+    width: 100%;
+    resize: none;
+    height: 42px;
+}
+
+.add-note > button {
+    box-sizing: border-box;
+    width: 100%;
+    height: 42px;
+    cursor: pointer;
+}
+
+.notes {
+    position: relative;
+    top: 90px;
+    height: 100%;
+    z-index: 0;
+}
+
+.note {
+    box-sizing: border-box;
+    margin-left: 25px;
+    margin-bottom: 5px;
+    border: 1px #eee solid;
+    background-color: #fecd00;
+    padding: 8px;
+    display: flex;
+}
+
+.note-text {
+    flex: auto;
+}
+
+.note-edit {
+    font-size: 25px;
+    padding-left: 4px;
+    flex: 0 0;
+}
+
+.note-edit > a {
+    text-decoration: none;
+}
+
+.note > textarea {
+    min-height: 60px;
+    resize: vertical;
+    flex: auto;
+}
+
+.edit-button, .cancel-button:hover, .save-button:hover {
+    color: darkblue;
+}
+
+.edit-button:hover, .cancel-button {
+    color: darkred;
+}
+
+.save-button {
+    color: green;
+}
