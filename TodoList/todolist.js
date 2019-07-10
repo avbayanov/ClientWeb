@@ -30,8 +30,8 @@
             "<div class=\"note-text\">" +
             "</div>" +
             "<div class=\"note-edit\">" +
-            "<a href=\"javascript://\" class=\"edit-button\">&#9998;</a><br>" +
-            "<a href=\"javascript://\" class=\"delete-button\">&#10007;</a>" +
+            "<a href=\"javascript://\" title=\"Edit note\" class=\"edit-button\">&#9998;</a><br>" +
+            "<a href=\"javascript://\" title=\"Delete note\" class=\"delete-button\">&#10007;</a>" +
             "</div>";
 
         newNoteNode.children[0].textContent = newNoteContent;
@@ -59,8 +59,8 @@
         textareaNoteNode.textContent = text;
 
         noteEditNode.innerHTML =
-            "<a href=\"javascript://\" class=\"cancel-button\">&#10007;</a><br>" +
-            "<a href=\"javascript://\" class=\"save-button\">&#10003;</a>";
+            "<a href=\"javascript://\" title=\"Cancel changes\" class=\"cancel-button\">&#10007;</a><br>" +
+            "<a href=\"javascript://\" title=\"Save changes\" class=\"save-button\">&#10003;</a>";
 
         noteEditNode.children[0].addEventListener("click",
             doneEditNoteHandler.bind("", noteNode, textareaNoteNode, noteEditNode));
@@ -97,8 +97,8 @@
         noteTextNode.textContent = text;
 
         noteEditNode.innerHTML =
-            "<a href=\"javascript://\" class=\"edit-button\">&#9998;</a><br>" +
-            "<a href=\"javascript://\" class=\"delete-button\">&#10007;</a>";
+            "<a href=\"javascript://\" title=\"Edit note\" class=\"edit-button\">&#9998;</a><br>" +
+            "<a href=\"javascript://\" title=\"Delete note\" class=\"delete-button\">&#10007;</a>";
 
         setEditButtonsHandlers(noteNode, noteTextNode, noteEditNode);
 
