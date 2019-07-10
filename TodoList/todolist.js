@@ -52,11 +52,13 @@
 
     function editNoteButtonHandler(noteNode, noteTextNode, noteEditNode) {
         var text = noteTextNode.textContent;
+        var height = parseInt(window.getComputedStyle(noteTextNode).height, 10) - 2;
 
         noteNode.removeChild(noteTextNode);
 
         var textareaNoteNode = document.createElement("textarea");
         textareaNoteNode.textContent = text;
+        textareaNoteNode.style.height = height.toString() + "px";
 
         noteEditNode.innerHTML =
             "<a href=\"javascript://\" title=\"Cancel changes\" class=\"cancel-button\">&#10007;</a><br>" +
