@@ -17,18 +17,16 @@ body {
 }
 
 .main-block {
-    max-width: 500px;
-}
-
-.sub-block {
-    padding: 6px;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .field {
     display: flex;
     box-sizing: border-box;
-    max-width: 500px;
+    max-width: 600px;
     padding-bottom: 2px;
+    border-bottom: 1px #ddd solid;
 }
 
 .new-note, .add-note {
@@ -45,30 +43,29 @@ body {
     padding-left: 2px;
 }
 
-.new-note > textarea {
+.new-note > textarea, .add-note > button {
     box-sizing: border-box;
     width: 100%;
+    height: 54px;
+}
+
+.new-note > textarea {
     resize: none;
-    height: 42px;
 }
 
 .add-note > button {
-    box-sizing: border-box;
-    width: 100%;
-    height: 42px;
     cursor: pointer;
 }
 
 .notes {
     position: relative;
-    top: 90px;
+    top: 100px;
     height: 100%;
     z-index: 0;
 }
 
 .note {
     box-sizing: border-box;
-    margin-left: 25px;
     margin-bottom: 5px;
     border: 1px #eee solid;
     background-color: #fecd00;
@@ -95,6 +92,10 @@ body {
     min-height: 60px;
     resize: vertical;
     flex: auto;
+}
+
+.new-note > textarea, .note > textarea, .note-text {
+    padding: 5px;
 }
 
 .edit-button, .cancel-button:hover, .save-button:hover, .delete-button:hover {
