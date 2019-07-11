@@ -3,6 +3,10 @@ body {
     font-size: 18px;
 }
 
+.side-padded {
+    padding: 0 5px;
+}
+
 .header {
     position: fixed;
     width: 100%;
@@ -13,10 +17,11 @@ body {
 .header h3 {
     margin-block-start: 0;
     margin-block-end: 0;
-    margin: 5px 9px;
+    margin: 10px 0 5px;
 }
 
 .main-block {
+    box-sizing: border-box;
     max-width: 600px;
     margin: 0 auto;
 }
@@ -24,7 +29,7 @@ body {
 .field {
     display: flex;
     box-sizing: border-box;
-    max-width: 600px;
+    max-width: 590px;
     padding-bottom: 2px;
     border-bottom: 1px #ddd solid;
 }
@@ -59,7 +64,7 @@ body {
 
 .notes {
     position: relative;
-    top: 100px;
+    top: 106px;
     height: 100%;
     z-index: 0;
 }
