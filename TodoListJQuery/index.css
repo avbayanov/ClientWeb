@@ -1,0 +1,117 @@
+body {
+    font-family: "Noto Sans", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.side-padded {
+    padding: 0 5px;
+}
+
+.header {
+    position: fixed;
+    width: 100%;
+    background-color: #fff;
+    z-index: 100;
+}
+
+.header h3 {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin: 10px 0 5px;
+    font-weight: 700;
+}
+
+.main-block {
+    box-sizing: border-box;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.field {
+    display: flex;
+    box-sizing: border-box;
+    max-width: 590px;
+    padding-bottom: 2px;
+    border-bottom: 1px #ddd solid;
+}
+
+.new-note, .add-note {
+    box-sizing: border-box;
+}
+
+.new-note {
+    flex: 1 1 auto;
+    padding-right: 2px;
+}
+
+.add-note {
+    flex: 0 0 100px;
+    padding-left: 2px;
+}
+
+.new-note > textarea, .add-note > button {
+    box-sizing: border-box;
+    width: 100%;
+    height: 54px;
+}
+
+.new-note > textarea {
+    resize: none;
+}
+
+.add-note > button {
+    cursor: pointer;
+}
+
+.notes {
+    position: relative;
+    top: 104px;
+    height: 100%;
+    z-index: 0;
+}
+
+.note {
+    box-sizing: border-box;
+    margin-bottom: 5px;
+    border: 1px #eee solid;
+    background-color: #ffe529;
+    padding: 8px;
+    display: flex;
+}
+
+.note-text {
+    flex: auto;
+}
+
+.note-edit {
+    font-size: 25px;
+    padding-left: 4px;
+    flex: 0 0;
+}
+
+.note-edit > a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.note > textarea {
+    resize: vertical;
+    flex: auto;
+}
+
+.new-note > textarea, .note > textarea, .note-text {
+    padding: 5px;
+}
+
+.edit-button, .cancel-button:hover, .save-button:hover, .delete-button:hover {
+    color: darkblue;
+}
+
+.edit-button:hover, .cancel-button, .delete-button {
+    color: darkred;
+}
+
+.save-button {
+    color: green;
+}

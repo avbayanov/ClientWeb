@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo list</title>
+    <link href="normalize.css" rel="stylesheet">
+    <link href="index.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700&display=swap&subset=cyrillic" rel="stylesheet">
+</head>
+<body>
+<div class="main-block">
+    <div class="header">
+        <div class="side-padded">
+            <h3>Todo list</h3>
+            <div class="field">
+                <div class="new-note">
+                    <textarea id="new-note-input" class="new-note-input" placeholder="Write new note..."></textarea>
+                </div>
+                <div class="add-note">
+                    <button type="button" id="add-note-button" class="add-note-button">Add note</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="notes side-padded" id="notes">
+    </div>
+</div>
+<script src="jquery-3.4.1.min.js"></script>
+<script src="todolist.js"></script>
+</body>
+</html>
