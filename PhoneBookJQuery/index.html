@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Телефонная книга</title>
+    <link href="styles/normalize.css" rel="stylesheet">
+    <link href="styles/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700&display=swap&subset=cyrillic" rel="stylesheet">
+</head>
+<body>
+    <div class="new-contact-form">
+        <h3>Добавить новый контакт</h3>
+        <label for="last-name-input">Фамилия</label>
+        <input type="text" id="last-name-input" autofocus="autofocus">
+        <label for="first-name-input">Имя</label>
+        <input type="text" id="first-name-input">
+        <label for="phone-input">Номер телефона</label>
+        <input type="text" id="phone-input">
+        <button type="button" id="save-button">Сохранить</button>
+    </div>
+    <table class="phone-book">
+        <thead>
+            <tr>
+                <th class="index">№</th>
+                <th class="last-name">Фамилия</th>
+                <th class="first-name">Имя</th>
+                <th class="phone">Номер телефона</th>
+                <th class="delete"></th>
+            </tr>
+        </thead>
+        <tbody>
+<!--            <tr>-->
+<!--                <td class="index">1</td>-->
+<!--                <td class="last-name">Aaa</td>-->
+<!--                <td class="first-name">Abb</td>-->
+<!--                <td class="phone">8-913-123-4567</td>-->
+<!--                <td class="delete"><a href="javascript://" title="Удалить контакт">&#10060</a></td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <td class="index">2</td>-->
+<!--                <td class="last-name">Bbb</td>-->
+<!--                <td class="first-name">Baa</td>-->
+<!--                <td class="phone">8-913-123-4567</td>-->
+<!--                <td class="delete"><a href="javascript://" title="Удалить контакт">&#10060</a></td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <td class="index">3</td>-->
+<!--                <td class="last-name">Ccc</td>-->
+<!--                <td class="first-name">Caa</td>-->
+<!--                <td class="phone">8-913-123-4567</td>-->
+<!--                <td class="delete"><a href="javascript://" title="Удалить контакт">&#10060</a></td>-->
+<!--            </tr>-->
+        </tbody>
+    </table>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="scripts/phonebook.js"></script>
+</body>
+</html>
