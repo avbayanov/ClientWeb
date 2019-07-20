@@ -83,3 +83,11 @@ html, body {
     text-decoration: none;
     cursor: pointer;
 }
+
+.delete-confirmation {
+    display: none;
+}
+
+.no-close .ui-dialog-titlebar-close {
+    display: none;
+}

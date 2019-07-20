@@ -22,6 +22,50 @@
         }
     }
 
+    function saveButtonHandler() {
+        if (lastNameInput.val() === "" && firstNameInput.val() === "" && phoneInput.val() === "") {
+            return;
+        }
+
+        if (!validateForm()) {
+            return;
+        }
+
+        var row = $("<tr>")
+            .appendTo(".phone-book tbody");
+
+        rows.push(row);
+
+        $("<td>")
+            .addClass("index")
+            .text(rows.length)
+            .appendTo(row);
+        $("<td>")
+            .addClass("last-name")
+            .text(lastNameInput.val())
+            .appendTo(row);
+        $("<td>")
+            .addClass("first-name")
+            .text(firstNameInput.val())
+            .appendTo(row);
+        $("<td>")
+            .addClass("phone")
+            .text(phoneInput.val())
+            .appendTo(row);
+        var deleteCell = $("<td>")
+            .addClass("delete")
+            .appendTo(row);
+
+        $("<a>")
+            .html("&#10060;")
+            .click(function () {
+                deleteConfirmation(row);
+            })
+            .appendTo(deleteCell);
+
+        clearInputs();
+    }
+
     function validateForm() {
         var inputErrorClass = "error-input";
         var isError = false;
@@ -72,10 +116,10 @@
                 .html(errorMessageFirst  + errorMessageFirstEnding + "<br>" + errorMessageLast)
                 .appendTo(".new-contact-form");
 
-            return true;
+            return false;
         }
 
-        return false;
+        return true;
     }
 
     function clearInputs() {
@@ -85,54 +129,36 @@
         phoneInput.val("");
     }
 
-    function saveButtonHandler() {
-        if (lastNameInput.val() === "" && firstNameInput.val() === "" && phoneInput.val() === "") {
-            return;
-        }
+    function removeRow(row) {
+        row.remove();
+        rows.splice(rows.indexOf(row), 1);
 
-        if (validateForm()) {
-            return;
-        }
-
-        var row = $("<tr>")
-            .appendTo(".phone-book tbody");
-
-        rows.push(row);
-
-        $("<td>")
-            .addClass("index")
-            .text(rows.length)
-            .appendTo(row);
-        $("<td>")
-            .addClass("last-name")
-            .text(lastNameInput.val())
-            .appendTo(row);
-        $("<td>")
-            .addClass("first-name")
-            .text(firstNameInput.val())
-            .appendTo(row);
-        $("<td>")
-            .addClass("phone")
-            .text(phoneInput.val())
-            .appendTo(row);
-        var deleteCell = $("<td>")
-            .addClass("delete")
-            .appendTo(row);
-
-        $("<a>")
-            .html("&#10060;")
-            .click(function () {
-                removeRow(rows.length - 1);
-            })
-            .appendTo(deleteCell);
-
-        clearInputs();
+        reindex();
     }
 
-    function removeRow(index) {
-        rows[index].remove();
-        rows.splice(index, 1);
-        reindex();
+    function deleteConfirmation(row) {
+        $(".delete-confirmation").dialog({
+            dialogClass: "no-close",
+            resizable: false,
+            height: "auto",
+            width: 400,
+            modal: true,
+            buttons: [
+                {
+                    text: "Удалить контакт",
+                    click: function() {
+                        $(this).dialog("close");
+                        removeRow(row);
+                    }
+                },
+                {
+                    text: "Отмена",
+                    click: function() {
+                        $(this).dialog("close");
+                    }
+                }
+            ]
+        });
     }
 
     function reindex() {

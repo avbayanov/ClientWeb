@@ -6,6 +6,7 @@
     <link href="styles/normalize.css" rel="stylesheet">
     <link href="styles/style.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700&display=swap&subset=cyrillic" rel="stylesheet">
+    <link href="node_modules/jquery-ui-dist/jquery-ui.min.css" rel="stylesheet">
 </head>
 <body>
     <div class="new-contact-form">
@@ -52,7 +53,14 @@
 <!--            </tr>-->
         </tbody>
     </table>
+    <div class="delete-confirmation" title="Вы уверены?">
+        <p>
+            <span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span>
+            Вы точно хотите удалить выбранный контакт? Эта операция необратима!
+        </p>
+    </div>
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="scripts/phonebook.js"></script>
+    <script src="node_modules/jquery-ui-dist/jquery-ui.min.js"></script>
 </body>
 </html>
