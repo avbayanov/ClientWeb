@@ -78,6 +78,7 @@ html, body {
 }
 
 .phone-book .delete-button a {
+    color: #f00;
     text-decoration: none;
     cursor: pointer;
 }
