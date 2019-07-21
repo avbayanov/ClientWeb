@@ -1,9 +1,15 @@
 (function () {
     var rows = [];
+    var checkedRows = [];
+    var isCheckedAll = false;
 
     var lastNameInput;
     var firstNameInput;
     var phoneInput;
+
+    var checkAllCheckbox;
+
+    var inputErrorClass = "error-input";
     
     $(function () {
         lastNameInput = $("#last-name-input")
@@ -14,6 +20,8 @@
             .keydown(enterKeydownHandler);
 
         $("#save-button").click(saveButtonHandler);
+        checkAllCheckbox = $("thead .delete-check > input").click(checkAllRows);
+        $("#batch-delete-button").click(showBatchDeleteConfirmation);
     });
 
     function enterKeydownHandler(event) {
@@ -53,31 +61,64 @@
             .text(phoneInput.val())
             .appendTo(row);
         var deleteCell = $("<td>")
-            .addClass("delete")
+            .addClass("delete-button")
+            .appendTo(row);
+        var checkCell = $("<td>")
+            .addClass("delete-check")
             .appendTo(row);
 
         $("<a>")
             .html("&#10060;")
             .click(function () {
-                deleteConfirmation(row);
+                showDeleteConfirmation(row);
             })
             .appendTo(deleteCell);
 
+        $("<input>")
+            .attr("type", "checkbox")
+            .attr("title", "Выбрать контакт").click(function () {
+                checkRow(row);
+            }).appendTo(checkCell);
+
         clearInputs();
+
+        setIsCheckedAllFalse();
     }
 
     function validateForm() {
-        var inputErrorClass = "error-input";
+        lastNameInput.removeClass(inputErrorClass);
+        firstNameInput.removeClass(inputErrorClass);
+        phoneInput.removeClass(inputErrorClass);
+        $(".error-message").remove();
+
+        if (!useCheckAndDisplayError(checkForEmptyInputs)) {
+            return false;
+        }
+
+        return useCheckAndDisplayError(checkForExistingPhone);
+    }
+
+    function useCheckAndDisplayError(check) {
+        var checkResult = check();
+
+        if (checkResult.isError) {
+            $("<p>")
+                .addClass("error-message")
+                .html(checkResult.message)
+                .appendTo(".new-contact-form");
+
+            return false;
+        }
+
+        return true;
+    }
+
+    function checkForEmptyInputs() {
         var isError = false;
 
         var errorMessageFirst = "Необходимо заполнить пол";
         var errorMessageFirstEnding = "е";
         var errorMessageLast = "";
-
-        lastNameInput.removeClass(inputErrorClass);
-        firstNameInput.removeClass(inputErrorClass);
-        phoneInput.removeClass(inputErrorClass);
-        $(".error-message").remove();
 
         function makePluralForm() {
             if (isError) {
@@ -110,16 +151,27 @@
             isError = true;
         }
 
-        if (isError) {
-            $("<p>")
-                .addClass("error-message")
-                .html(errorMessageFirst  + errorMessageFirstEnding + "<br>" + errorMessageLast)
-                .appendTo(".new-contact-form");
+        return {
+            isError: isError,
+            message: errorMessageFirst + errorMessageFirstEnding + "<br>" + errorMessageLast
+        };
+    }
 
-            return false;
+    function checkForExistingPhone() {
+        for (var i = 0; i < rows.length; i++) {
+            if (phoneInput.val() === rows[i].children(".phone").text()) {
+                phoneInput.addClass(inputErrorClass);
+
+                return {
+                    isError: true,
+                    message: "Контакт с таким номером телефона уже добавлен"
+                };
+            }
         }
 
-        return true;
+        return {
+            isError: false
+        };
     }
 
     function clearInputs() {
@@ -134,14 +186,16 @@
         rows.splice(rows.indexOf(row), 1);
 
         reindex();
+
+        setIsCheckedAllFalse();
     }
 
-    function deleteConfirmation(row) {
+    function showDeleteConfirmation(row) {
         $(".delete-confirmation").dialog({
             dialogClass: "no-close",
             resizable: false,
             height: "auto",
-            width: 400,
+            width: 450,
             modal: true,
             buttons: [
                 {
@@ -166,9 +220,121 @@
 
         rows.forEach(function (row) {
             row.children(".index")
-                .text(index);
-
-            index++;
+                .text(index++);
         })
+    }
+
+    function checkAllRows() {
+        if (!isCheckedAll) {
+            rows.forEach(function (row) {
+                if (checkedRows.indexOf(row) === -1) {
+                    checkedRows.push(row);
+                    row.children(".delete-check")
+                        .children("input")
+                        .prop("checked", true);
+                }
+            });
+
+            isCheckedAll = true;
+        } else {
+            checkedRows.splice(0, checkedRows.length);
+
+            rows.forEach(function (row) {
+                row.children(".delete-check")
+                    .children("input")
+                    .prop("checked", false);
+            });
+
+            isCheckedAll = false;
+        }
+
+        toggleBatchDeletePopup();
+    }
+
+    function setIsCheckedAllFalse() {
+        isCheckedAll = false;
+        checkAllCheckbox.prop("checked", false);
+    }
+
+    function checkRow(row) {
+        setIsCheckedAllFalse();
+
+        var checkedRowIndex = checkedRows.indexOf(row);
+
+        if (checkedRowIndex === -1) {
+            checkedRows.push(row);
+        } else {
+            checkedRows.splice(checkedRowIndex, 1);
+        }
+
+        toggleBatchDeletePopup();
+    }
+
+    function toggleBatchDeletePopup() {
+        var batchDeletePopup = $(".batch-delete-popup");
+        var phoneBook = $(".phone-book");
+
+        if (checkedRows.length > 0){
+            $(".batch-delete-count")
+                .text(checkedRows.length);
+            $(".batch-delete-text-ending")
+                .text(getBatchDeleteTextEnding());
+
+            batchDeletePopup.show();
+            phoneBook.addClass("batch-delete-popup-push");
+            return;
+        }
+        batchDeletePopup.hide();
+        phoneBook.removeClass("batch-delete-popup-push");
+    }
+
+    function showBatchDeleteConfirmation() {
+        $(".batch-delete-confirmation").dialog({
+            dialogClass: "no-close",
+            resizable: false,
+            height: "auto",
+            width: 450,
+            modal: true,
+            buttons: [
+                {
+                    text: "Удалить " + checkedRows.length + " контакт" + getBatchDeleteTextEnding(),
+                    click: function () {
+                        $(this).dialog("close");
+                        batchRemoveRows();
+                        toggleBatchDeletePopup();
+                    }
+                },
+                {
+                    text: "Отмена",
+                    click: function () {
+                        $(this).dialog("close");
+                    }
+                }
+            ]
+        });
+    }
+
+    function getBatchDeleteTextEnding() {
+        switch (checkedRows.length % 10) {
+            case 1:
+                return  "";
+            case 2:
+            case 3:
+            case 4:
+                return "а";
+            default:
+                return "ов";
+        }
+    }
+
+    function batchRemoveRows() {
+        while (checkedRows.length > 0) {
+            var row = checkedRows.pop();
+
+            row.remove();
+            rows.splice(rows.indexOf(row), 1);
+        }
+
+        reindex();
     }
 })();

@@ -26,7 +26,8 @@
                 <th class="last-name">Фамилия</th>
                 <th class="first-name">Имя</th>
                 <th class="phone">Номер телефона</th>
-                <th class="delete"></th>
+                <th class="delete-button"></th>
+                <th class="delete-check"><input type="checkbox" title="Выбрать контакт"></th>
             </tr>
         </thead>
         <tbody>
@@ -35,28 +36,45 @@
 <!--                <td class="last-name">Aaa</td>-->
 <!--                <td class="first-name">Abb</td>-->
 <!--                <td class="phone">8-913-123-4567</td>-->
-<!--                <td class="delete"><a href="javascript://" title="Удалить контакт">&#10060</a></td>-->
+<!--                <td class="delete-button"><a href="javascript://" title="Удалить контакт">&#10060</a></td>-->
+<!--                <td class="delete-check"><input type="checkbox" title="Выбрать контакт"></td>-->
 <!--            </tr>-->
 <!--            <tr>-->
 <!--                <td class="index">2</td>-->
 <!--                <td class="last-name">Bbb</td>-->
 <!--                <td class="first-name">Baa</td>-->
 <!--                <td class="phone">8-913-123-4567</td>-->
-<!--                <td class="delete"><a href="javascript://" title="Удалить контакт">&#10060</a></td>-->
+<!--                <td class="delete-button"><a href="javascript://" title="Удалить контакт">&#10060</a></td>-->
+<!--                <td class="delete-check"><input type="checkbox" title="Выбрать контакт"></td>-->
 <!--            </tr>-->
 <!--            <tr>-->
 <!--                <td class="index">3</td>-->
 <!--                <td class="last-name">Ccc</td>-->
 <!--                <td class="first-name">Caa</td>-->
 <!--                <td class="phone">8-913-123-4567</td>-->
-<!--                <td class="delete"><a href="javascript://" title="Удалить контакт">&#10060</a></td>-->
+<!--                <td class="delete-button"><a href="javascript://" title="Удалить контакт">&#10060</a></td>-->
+<!--                <td class="delete-check"><input type="checkbox" title="Выбрать контакт"></td>-->
 <!--            </tr>-->
         </tbody>
     </table>
+    <div class="batch-delete-popup">
+        <div class="batch-delete-container">
+            <p class="batch-delete-text">Вы выбрали <span class="batch-delete-count"></span>
+                контакт<span class="batch-delete-text-ending"></span></p>
+            <button type="button" id="batch-delete-button" class="batch-delete-button">Удалить</button>
+        </div>
+
+    </div>
     <div class="delete-confirmation" title="Вы уверены?">
         <p>
             <span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span>
-            Вы точно хотите удалить выбранный контакт? Эта операция необратима!
+            Вы точно хотите удалить выбранный контакт?<br>Эта операция необратима!
+        </p>
+    </div>
+    <div class="batch-delete-confirmation" title="Вы уверены?">
+        <p>
+            <span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span>
+            Вы точно хотите удалить выбранные контакты?<br>Эта операция необратима!
         </p>
     </div>
     <script src="node_modules/jquery/dist/jquery.min.js"></script>

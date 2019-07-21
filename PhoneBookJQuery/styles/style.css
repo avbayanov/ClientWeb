@@ -62,6 +62,7 @@ html, body {
     width: calc(100% - 240px);
     table-layout: fixed;
     border-collapse: collapse;
+    z-index: 0;
 }
 
 .phone-book th {
@@ -74,20 +75,55 @@ html, body {
     border: 1px #eee solid;
 }
 
-.phone-book .index, .phone-book .delete {
+.phone-book .index, .phone-book .delete-button, .phone-book .delete-check {
     width: 30px;
     text-align: center;
 }
 
-.phone-book .delete a {
+.phone-book .delete-button a {
     text-decoration: none;
     cursor: pointer;
 }
 
-.delete-confirmation {
+.delete-confirmation, .batch-delete-confirmation {
     display: none;
 }
 
 .no-close .ui-dialog-titlebar-close {
     display: none;
+}
+
+.batch-delete-popup {
+    display: none;
+
+    position: fixed;
+    left: 240px;
+    bottom: 0;
+    z-index: 100;
+
+    width: calc(100% - 240px);
+
+    background-color: #fff;
+    border-top: 1px #ddd solid;
+    border-left: 1px #ddd solid;
+}
+
+.batch-delete-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    align-content: space-around;
+}
+
+.batch-delete-text {
+    margin: 14px 0;
+}
+
+.batch-delete-button {
+    padding: 6px;
+}
+
+.batch-delete-popup-push {
+    margin-bottom: calc(1em + 14px * 2);
 }
