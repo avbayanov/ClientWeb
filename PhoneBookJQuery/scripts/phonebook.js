@@ -187,6 +187,12 @@
 
         reindex();
 
+        var checkedRowIndex = checkedRows.indexOf(row);
+        if (checkedRowIndex !== -1) {
+            checkedRows.splice(checkedRowIndex, 1);
+            updateBatchDeleteText();
+        }
+
         setIsCheckedAllFalse();
     }
 
@@ -275,10 +281,7 @@
         var phoneBook = $(".phone-book");
 
         if (checkedRows.length > 0){
-            $(".batch-delete-count")
-                .text(checkedRows.length);
-            $(".batch-delete-text-ending")
-                .text(getBatchDeleteTextEnding());
+            updateBatchDeleteText();
 
             batchDeletePopup.show();
             phoneBook.addClass("batch-delete-popup-push");
@@ -286,6 +289,13 @@
         }
         batchDeletePopup.hide();
         phoneBook.removeClass("batch-delete-popup-push");
+    }
+
+    function updateBatchDeleteText() {
+        $(".batch-delete-count")
+            .text(checkedRows.length);
+        $(".batch-delete-text-ending")
+            .text(getBatchDeleteTextEnding());
     }
 
     function showBatchDeleteConfirmation() {

@@ -187,7 +187,20 @@
 
         reindex();
 
+        var checkedRowIndex = checkedRows.indexOf(row);
+        if (checkedRowIndex !== -1) {
+            checkedRows.splice(checkedRowIndex, 1);
+            updateBatchDeleteText();
+        }
+
         setIsCheckedAllFalse();
+    }
+
+    function updateBatchDeleteText() {
+        $(".batch-delete-count")
+            .text(checkedRows.length);
+        $(".batch-delete-text-ending")
+            .text(getBatchDeleteTextEnding());
     }
 
     function showDeleteConfirmation(row) {
