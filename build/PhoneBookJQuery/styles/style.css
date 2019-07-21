@@ -13,6 +13,7 @@ html, body {
     width: 240px;
     border-right: 1px #ddd solid;
     background-color: #fff;
+    z-index: 100;
 }
 
 .new-contact-form > * {
