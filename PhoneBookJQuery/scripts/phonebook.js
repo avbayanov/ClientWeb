@@ -77,7 +77,8 @@
 
         $("<input>")
             .attr("type", "checkbox")
-            .attr("title", "Выбрать контакт").click(function () {
+            .attr("title", "Выбрать контакт")
+            .click(function () {
                 checkRow(row);
             }).appendTo(checkCell);
 
