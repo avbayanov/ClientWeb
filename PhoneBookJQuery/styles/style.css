@@ -12,7 +12,6 @@ html, body {
     height: 100%;
     width: 240px;
     border-right: 1px #ddd solid;
-    /*background-color: #679bb2;*/
     background-color: #fff;
 }
 
@@ -57,7 +56,6 @@ html, body {
 }
 
 .phone-book {
-    /*margin: 10px 10px 10px 250px;*/
     margin: 0 0 0 240px;
     width: calc(100% - 240px);
     table-layout: fixed;
@@ -71,7 +69,6 @@ html, body {
 
 .phone-book th, .phone-book td {
     padding: 8px;
-    /*height: 30px;*/
     border: 1px #eee solid;
 }
 
