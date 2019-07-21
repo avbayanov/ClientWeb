@@ -1,0 +1,126 @@
+html, body {
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+.new-contact-form {
+    position: fixed;
+    height: 100%;
+    width: 240px;
+    border-right: 1px #ddd solid;
+    background-color: #fff;
+}
+
+.new-contact-form > * {
+    box-sizing: border-box;
+    display: block;
+}
+
+.new-contact-form > h3 {
+    margin: 16px 0 22px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.new-contact-form > label, .new-contact-form > input {
+    margin: 0 10px;
+}
+
+.new-contact-form > input {
+    margin-top: 6px;
+    margin-bottom: 12px;
+    padding: 4px;
+    width: 220px;
+    border: 1px #ddd solid;
+}
+
+.new-contact-form > .error-input {
+    border: 1px #c00 solid;
+}
+
+.new-contact-form > button {
+    margin: 0 10px 0 auto;
+    padding: 5px 8px;
+}
+
+.new-contact-form > .error-message {
+    margin: 5px 10px;
+    font-size: 14px;
+    font-style: italic;
+    color: #c00;
+}
+
+.phone-book {
+    margin: 0 0 0 240px;
+    width: calc(100% - 240px);
+    table-layout: fixed;
+    border-collapse: collapse;
+    z-index: 0;
+}
+
+.phone-book th {
+    font-weight: 700;
+}
+
+.phone-book th, .phone-book td {
+    padding: 8px;
+    border: 1px #eee solid;
+}
+
+.phone-book .index, .phone-book .delete-button, .phone-book .delete-check {
+    width: 30px;
+    text-align: center;
+}
+
+.phone-book .delete-button a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.delete-confirmation, .batch-delete-confirmation {
+    display: none;
+}
+
+.no-close .ui-dialog-titlebar-close {
+    display: none;
+}
+
+.batch-delete-popup {
+    display: none;
+
+    position: fixed;
+    left: 240px;
+    bottom: 0;
+    z-index: 100;
+
+    width: calc(100% - 240px);
+
+    background-color: #fff;
+    border-top: 1px #ddd solid;
+    border-left: 1px #ddd solid;
+}
+
+.batch-delete-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    align-content: space-around;
+}
+
+.batch-delete-text {
+    margin: 14px 0;
+}
+
+.batch-delete-button {
+    padding: 6px;
+}
+
+.batch-delete-popup-push {
+    margin-bottom: calc(1em + 14px * 2);
+}

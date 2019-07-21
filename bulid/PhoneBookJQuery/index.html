@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Телефонная книга</title>
+    <link href="styles/normalize.css" rel="stylesheet">
+    <link href="styles/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700&display=swap&subset=cyrillic" rel="stylesheet">
+    <link href="node_modules/jquery-ui-dist/jquery-ui.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="new-contact-form">
+        <h3>Добавить новый контакт</h3>
+        <label for="last-name-input">Фамилия</label>
+        <input type="text" id="last-name-input" autofocus="autofocus">
+        <label for="first-name-input">Имя</label>
+        <input type="text" id="first-name-input">
+        <label for="phone-input">Номер телефона</label>
+        <input type="text" id="phone-input">
+        <button type="button" id="save-button">Сохранить</button>
+    </div>
+    <table class="phone-book">
+        <thead>
+            <tr>
+                <th class="index">№</th>
+                <th class="last-name">Фамилия</th>
+                <th class="first-name">Имя</th>
+                <th class="phone">Номер телефона</th>
+                <th class="delete-button"></th>
+                <th class="delete-check"><input type="checkbox" title="Выбрать контакт"></th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <div class="batch-delete-popup">
+        <div class="batch-delete-container">
+            <p class="batch-delete-text">Вы выбрали <span class="batch-delete-count"></span>
+                контакт<span class="batch-delete-text-ending"></span></p>
+            <button type="button" id="batch-delete-button" class="batch-delete-button">Удалить</button>
+        </div>
+
+    </div>
+    <div class="delete-confirmation" title="Вы уверены?">
+        <p>
+            <span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span>
+            Вы точно хотите удалить выбранный контакт?<br>Эта операция необратима!
+        </p>
+    </div>
+    <div class="batch-delete-confirmation" title="Вы уверены?">
+        <p>
+            <span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span>
+            Вы точно хотите удалить выбранные контакты?<br>Эта операция необратима!
+        </p>
+    </div>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="scripts/phonebook.js"></script>
+    <script src="node_modules/jquery-ui-dist/jquery-ui.min.js"></script>
+</body>
+</html>
