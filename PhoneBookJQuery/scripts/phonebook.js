@@ -70,6 +70,7 @@
         $("<a>")
             .html("&#10060;")
             .attr("href", "javascript://")
+            .attr("title", "Удалить контакт")
             .click(function () {
                 showDeleteConfirmation(row);
             })
