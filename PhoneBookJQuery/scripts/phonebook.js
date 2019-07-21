@@ -69,6 +69,7 @@
 
         $("<a>")
             .html("&#10060;")
+            .attr("href", "javascript://")
             .click(function () {
                 showDeleteConfirmation(row);
             })
