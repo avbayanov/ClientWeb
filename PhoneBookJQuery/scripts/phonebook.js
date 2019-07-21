@@ -302,6 +302,7 @@
                         $(this).dialog("close");
                         batchRemoveRows();
                         toggleBatchDeletePopup();
+                        setIsCheckedAllFalse();
                     }
                 },
                 {
