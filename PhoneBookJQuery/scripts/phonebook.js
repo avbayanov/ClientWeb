@@ -10,7 +10,7 @@
     var checkAllCheckbox;
 
     var inputErrorClass = "error-input";
-    
+
     $(function () {
         lastNameInput = $("#last-name-input")
             .keydown(enterKeydownHandler);
@@ -207,14 +207,14 @@
             buttons: [
                 {
                     text: "Удалить контакт",
-                    click: function() {
+                    click: function () {
                         $(this).dialog("close");
                         removeRow(row);
                     }
                 },
                 {
                     text: "Отмена",
-                    click: function() {
+                    click: function () {
                         $(this).dialog("close");
                     }
                 }
@@ -329,7 +329,7 @@
     function getBatchDeleteTextEnding() {
         switch (checkedRows.length % 10) {
             case 1:
-                return  "";
+                return "";
             case 2:
             case 3:
             case 4:
