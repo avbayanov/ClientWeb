@@ -281,7 +281,7 @@
         var batchDeletePopup = $(".batch-delete-popup");
         var phoneBook = $(".phone-book");
 
-        if (checkedRows.length > 0){
+        if (checkedRows.length > 0) {
             updateBatchDeleteText();
 
             batchDeletePopup.show();
