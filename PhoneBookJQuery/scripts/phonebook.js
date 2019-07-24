@@ -227,7 +227,8 @@
 
         rows.forEach(function (row) {
             row.children(".index")
-                .text(index++);
+                .text(index);
+            index++;
         })
     }
 
