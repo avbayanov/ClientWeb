@@ -65,7 +65,8 @@
             .filter(function (person) {
                 return  person.age >= from && person.age <= to;
             })
-            .sortBy("age");
+            .sortBy("age")
+            .value();
     }
 
     console.log("people age from 20 to 30 sorted by ascending order: "
