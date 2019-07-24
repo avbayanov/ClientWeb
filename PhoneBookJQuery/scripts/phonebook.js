@@ -31,10 +31,6 @@
     }
 
     function saveButtonHandler() {
-        if (lastNameInput.val() === "" && firstNameInput.val() === "" && phoneInput.val() === "") {
-            return;
-        }
-
         if (!validateForm()) {
             return;
         }
