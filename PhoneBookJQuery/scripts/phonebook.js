@@ -161,15 +161,13 @@
     }
 
     function checkForExistingPhone() {
-        for (var i = 0; i < rows.length; i++) {
-            if (phoneInput.val() === rows[i].children(".phone").text()) {
-                phoneInput.addClass(inputErrorClass);
-
-                return {
-                    isError: true,
-                    message: "Контакт с таким номером телефона уже добавлен"
-                };
-            }
+        if (rows.some(function (row) {
+            return phoneInput.val() === row.children(".phone").text();
+        })) {
+            return {
+                isError: true,
+                message: "Контакт с таким номером телефона уже добавлен"
+            };
         }
 
         return {
