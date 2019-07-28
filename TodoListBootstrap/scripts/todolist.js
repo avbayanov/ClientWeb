@@ -47,7 +47,7 @@
         newNoteInput.val("");
 
         var newNoteNode = $("<div>")
-            .addClass("col-md-6 col-lg-4 pb-3")
+            .addClass("col-md-6 col-xl-4 pb-3")
             .html(newNoteColDiv)
             .appendTo(notesRow);
 
