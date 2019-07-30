@@ -42,9 +42,13 @@
     function addNoteButtonHandler() {
         var text = newNoteInput.val();
         if (text === "") {
+            newNoteInput.addClass("is-invalid")
+                .prop("placeholder", "You must write something!");
             return;
         }
         newNoteInput.val("");
+        newNoteInput.removeClass("is-invalid")
+            .prop("placeholder", "Write new note...");
 
         var newNoteNode = $("<div>")
             .addClass("col-md-6 col-xl-4 pb-3")
