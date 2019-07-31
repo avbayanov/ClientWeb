@@ -85,20 +85,28 @@
 
         noteTextNode.remove();
 
+        function showInvalidStatus() {
+            textareaNoteNode.addClass("is-invalid");
+
+            $("<div>")
+                .addClass("invalid-feedback")
+                .text("You must write something!")
+                .insertAfter(textareaNoteNode);
+        }
+
+        function hideInvalidStatus() {
+            textareaNoteNode.siblings(".invalid-feedback")
+                .remove();
+        }
+
         function saveNote() {
             if (textareaNoteNode.val() === "") {
-                textareaNoteNode.addClass("is-invalid");
-
-                $("<div>")
-                    .addClass("invalid-feedback")
-                    .text("You must write something!")
-                    .insertAfter(textareaNoteNode);
+                showInvalidStatus();
 
                 return;
             }
 
-            textareaNoteNode.siblings(".invalid-feedback")
-                .remove();
+            hideInvalidStatus();
 
             textareaNoteNode.text(textareaNoteNode.val());
             doneEditNoteHandler(noteNode, textareaNoteNode, noteEditNode);
