@@ -81,14 +81,24 @@
     }
 
     function editNoteButtonHandler(noteNode, noteTextNode, noteEditNode) {
-        var height = noteTextNode.height() + 8;
+        var height = noteTextNode.height() + 10;
 
         noteTextNode.remove();
 
         function saveNote() {
             if (textareaNoteNode.val() === "") {
+                textareaNoteNode.addClass("is-invalid");
+
+                $("<div>")
+                    .addClass("invalid-feedback")
+                    .text("You must write something!")
+                    .insertAfter(textareaNoteNode);
+
                 return;
             }
+
+            textareaNoteNode.siblings(".invalid-feedback")
+                .remove();
 
             textareaNoteNode.text(textareaNoteNode.val());
             doneEditNoteHandler(noteNode, textareaNoteNode, noteEditNode);
@@ -96,6 +106,7 @@
 
         var textareaNoteNode = $("<textarea>")
             .text(noteTextNode.text())
+            .addClass("form-control")
             .addClass("note-text-edit")
             .height(height)
             .keydown(function (event) {

@@ -4,8 +4,30 @@
 
 .note-text-edit {
     width: 100%;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
     margin-top: -6px;
-    margin-left: -3px;
     padding-top: 5px;
+    padding-left: 2px;
+}
+
+.invalid-feedback {
+    display: block!important;
+    margin-bottom: 8px;
+}
+
+.note-text-edit.is-invalid {
+    margin-bottom: 0;
+}
+
+.is-invalid::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #dc3545!important;
+    opacity: 1; /* Firefox */
+}
+
+.is-invalid:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #dc3545!important;
+}
+
+.is-invalid::-ms-input-placeholder { /* Microsoft Edge */
+    color: #dc3545!important;
 }
