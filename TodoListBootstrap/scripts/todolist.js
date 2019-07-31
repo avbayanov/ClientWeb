@@ -128,6 +128,8 @@
 
         noteEditNode.children(".cancel-button")
             .click(function () {
+                hideInvalidStatus();
+
                 doneEditNoteHandler(noteNode, textareaNoteNode, noteEditNode);
             });
 
