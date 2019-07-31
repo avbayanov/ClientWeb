@@ -86,6 +86,10 @@
         noteTextNode.remove();
 
         function showInvalidStatus() {
+            if (textareaNoteNode.hasClass("is-invalid")) {
+                return;
+            }
+
             textareaNoteNode.addClass("is-invalid");
 
             $("<div>")
