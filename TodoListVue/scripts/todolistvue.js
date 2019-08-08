@@ -99,18 +99,19 @@
             hideModal: function () {
                 $("#delete-note-modal").modal("hide");
             },
-            cancelRemove: function () {
-                this.hideModal();
-                this.$emit("clear-remove-target");
-            },
             doRemove: function () {
-                this.hideModal();
                 this.$emit("remove-note", this.target);
-                this.$emit("clear-remove-target");
+                this.hideModal();
             }
         },
         mounted: function () {
             this.showModal();
+
+            var self = this;
+
+            $("#delete-note-modal").on("hidden.bs.modal", function () {
+                self.$emit("clear-remove-target");
+            })
         }
     });
 })();
