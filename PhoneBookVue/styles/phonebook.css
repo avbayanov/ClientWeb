@@ -1,0 +1,90 @@
+[v-cloak] {
+    display: none;
+}
+
+.topbar-indent {
+    padding-top: 4.5em;
+}
+
+@media (max-width: 576px) {
+    .topbar-indent {
+        padding-top: 7.5em;
+    }
+}
+
+.page-content {
+    padding-top: 3.5em;
+}
+
+@media (max-width: 576px) {
+    .page-content {
+        padding-top: 6.5em;
+    }
+}
+
+td.delete-button > div, td.delete-check > div, th.delete-check > div {
+    display: flex;
+}
+
+td.delete-button > div > button {
+    margin: -3px auto 0;
+}
+
+td.delete-check input {
+    margin: 5px auto 0;
+}
+
+th.delete-check input {
+    margin: -17px auto 0;
+}
+
+td.delete-check input, th.delete-check input {
+    cursor: pointer;
+}
+
+.batch-delete-popup {
+    /*display: none;*/
+
+    position: fixed;
+    left: 15rem;
+    bottom: 0;
+    z-index: 50;
+
+    width: calc(100% - 15rem);
+
+    background-color: #fff;
+    box-shadow:0 0 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s;
+}
+
+@media (max-width: 768px) {
+    .batch-delete-popup {
+        left: 0;
+        width: 100%;
+    }
+
+    .batch-delete-popup.active {
+        left: 15rem;
+        width: calc(100% - 15rem);
+    }
+}
+
+.batch-delete-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    align-content: space-around;
+}
+
+.batch-delete-text {
+    margin: 14px 0;
+}
+
+.batch-delete-button {
+    padding: 6px;
+}
+
+.batch-delete-popup-push {
+    margin-bottom: 3.4em;
+}
