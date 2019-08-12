@@ -22,27 +22,27 @@
 
 /* for toggle behavior */
 
-#sidebar.active {
+.vertical-nav.active {
     margin-left: -15rem;
 }
 
-#content.active {
+.page-content.active {
     width: 100%;
     margin: 0;
 }
 
 @media (max-width: 768px) {
-    #sidebar {
+    .vertical-nav {
         margin-left: -15rem;
     }
-    #sidebar.active {
+    .vertical-nav.active {
         margin-left: 0;
     }
-    #content {
+    .page-content {
         width: 100%;
         margin: 0;
     }
-    #content.active {
+    .page-content.active {
         margin-left: 15rem;
         width: calc(100% - 15rem);
     }
@@ -55,7 +55,7 @@
 /* Collapse button and its behavior*/
 
 @media (min-width: 768px) {
-    #sidebarCollapse {
+    .sidebarCollapse {
         display: none;
     }
     .navbar-brand {
