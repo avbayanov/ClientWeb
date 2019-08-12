@@ -43,10 +43,6 @@
             saveContact: function () {
                 this.isPhoneDuplicate = false;
 
-                if (!this.checkInputs()) {
-                    return;
-                }
-
                 this.$emit("check-phone-exist", this.phoneNumber);
             }
         },
@@ -58,6 +54,9 @@
 
                 if (this.isPhoneExist) {
                     this.isPhoneDuplicate = true;
+                }
+
+                if (!this.checkInputs() || this.isPhoneExist) {
                     return;
                 }
 
@@ -71,24 +70,60 @@
                 this.firstName = "";
                 this.lastName = "";
                 this.phoneNumber = "";
+                this.$refs.firstName.focus();
             }
         }
     });
 
-    // Vue.component("batch-delete-popup", {
-    //
-    // });
+    Vue.component("batch-remove-popup", {
+        props: ["checked", "isSidebarActive"],
+        template: "#batch-remove-popup-template",
+        methods: {
+            doRemove: function () {
+                this.$emit("remove-checked");
+            }
+        }
+    });
+
+    Vue.component("remove-modal", {
+        props: ["targets"],
+        template: "#remove-contacts-modal-template",
+        methods: {
+            showModal: function () {
+                $("#remove-contacts-modal").modal("show");
+            },
+            hideModal: function () {
+                $("#remove-contacts-modal").modal("hide");
+            },
+            doRemove: function () {
+                this.$emit("remove-contacts");
+                this.hideModal();
+            }
+        },
+        mounted: function () {
+            this.showModal();
+
+            var self = this;
+            $("#remove-contacts-modal").on("hidden.bs.modal", function () {
+                self.$emit("clear-remove-targets");
+            })
+        }
+    });
 
     new Vue({
         el: "#app",
         data: {
+            isSidebarActive: false,
             contacts: [],
+            addedContacts: 0,
             search: "",
             isPhoneExist: null,
-            deleteTargets: {
+            removeTargets: {
                 isExist: false,
-                targets: []
-            }
+                ids: []
+            },
+            checkAll: false,
+            checkAllFalsedByContactsWatcher: false
         },
         methods: {
             getContacts: function () {
@@ -109,11 +144,63 @@
                 });
             },
             addContact: function (contact) {
-                this.contacts.push(contact);
+                this.contacts.push(Object.assign({
+                    id: this.addedContacts
+                }, contact));
+
                 this.isPhoneExist = null;
+                this.addedContacts++;
+            },
+            getCheckedIds: function() {
+                var result = [];
+
+                this.contacts.forEach(function (contact) {
+                    if (contact.isChecked) {
+                        result.push(contact.id);
+                    }
+                });
+
+                return result;
+            },
+            setRemoveTargets: function (targets) {
+                this.removeTargets.ids = targets;
+                this.removeTargets.isExist = true;
+            },
+            removeContacts: function () {
+                var self = this;
+                this.removeTargets.ids.forEach(function (id) {
+                    var removeIndex = self.contacts.findIndex(function (contact) {
+                        return contact.id === id;
+                    });
+
+                    self.contacts.splice(removeIndex, 1);
+                })
+            }
+        },
+        watch: {
+            checkAll: function () {
+                if (this.checkAllFalsedByContactsWatcher) {
+                    this.checkAllFalsedByContactsWatcher = false;
+                    return;
+                }
+
+                if (this.checkAll === true) {
+                    this.contacts.forEach(function (contact) {
+                        contact.isChecked = true;
+                    });
+                } else {
+                    this.contacts.forEach(function (contact) {
+                        contact.isChecked = false;
+                    });
+                }
+            },
+            contacts: function () {
+                if (this.checkAll) {
+                    this.checkAllFalsedByContactsWatcher = true;
+                }
+
+                this.checkAll = false;
             }
         }
     });
-
-
 })();
