@@ -140,8 +140,10 @@
                 })
             },
             checkPhoneExist: function (phoneNumber) {
+                var loweredPhoneNumber = phoneNumber.toLowerCase();
+
                 this.isPhoneExist = this.contacts.some(function (value) {
-                    return value.phoneNumber === phoneNumber;
+                    return value.phoneNumber.toLowerCase() === loweredPhoneNumber;
                 });
             },
             addContact: function (contact) {
