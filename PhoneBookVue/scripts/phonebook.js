@@ -131,11 +131,12 @@
                     return this.contacts;
                 }
 
-                var self = this;
+                var loweredSearch = this.search.toLowerCase();
+
                 return this.contacts.filter(function (contact) {
-                    return contact.firstName.indexOf(self.search) !== -1
-                        || contact.lastName.indexOf(self.search) !== -1
-                        || contact.phoneNumber.indexOf(self.search) !== -1;
+                    return contact.firstName.toLowerCase().indexOf(loweredSearch) !== -1
+                        || contact.lastName.toLowerCase().indexOf(loweredSearch) !== -1
+                        || contact.phoneNumber.toLowerCase().indexOf(loweredSearch) !== -1;
                 })
             },
             checkPhoneExist: function (phoneNumber) {
