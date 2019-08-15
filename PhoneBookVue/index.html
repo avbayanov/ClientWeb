@@ -53,7 +53,7 @@
                 </thead>
                 <tbody>
                     <tr v-cloak v-for="(contact, index) in getContacts()">
-                        <td class="index">{{ index }}</td>
+                        <td class="index">{{ index + 1 }}</td>
                         <td class="first-name">{{ contact.firstName }}</td>
                         <td class="last-name">{{ contact.lastName }}</td>
                         <td class="phone">{{ contact.phoneNumber }}</td>
