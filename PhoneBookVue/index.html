@@ -35,7 +35,7 @@
     </div>
 
     <div class="page-content" id="content" :class="{ 'active': isSidebarActive }">
-        <div class="table-responsive " :class="{ 'batch-delete-popup-push': (getCheckedIds().length > 0) }">
+        <div class="table-responsive " :class="{ 'batch-delete-popup-push': (checkedIds.length > 0) }">
             <table class="table table-hover mb-0" id="phonebook">
                 <thead class="thead-light">
                     <tr>
@@ -52,7 +52,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-cloak v-for="(contact, index) in getContacts()">
+                    <tr v-cloak v-for="(contact, index) in searchedContacts">
                         <td class="index">{{ index + 1 }}</td>
                         <td class="first-name">{{ contact.firstName }}</td>
                         <td class="last-name">{{ contact.lastName }}</td>
@@ -75,8 +75,8 @@
             </table>
         </div>
 
-        <batch-remove-popup v-if="getCheckedIds().length > 0" :checked="getCheckedIds()" :is-sidebar-active="isSidebarActive"
-                            @remove-checked="setRemoveTargets(getCheckedIds())">
+        <batch-remove-popup v-if="checkedIds.length > 0" :checked="checkedIds" :is-sidebar-active="isSidebarActive"
+                            @remove-checked="setRemoveTargets(checkedIds)">
         </batch-remove-popup>
     </div>
 

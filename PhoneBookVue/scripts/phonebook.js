@@ -126,19 +126,6 @@
             checkAllFalsedByContactsWatcher: false
         },
         methods: {
-            getContacts: function () {
-                if (this.search === "") {
-                    return this.contacts;
-                }
-
-                var loweredSearch = this.search.toLowerCase();
-
-                return this.contacts.filter(function (contact) {
-                    return contact.firstName.toLowerCase().indexOf(loweredSearch) !== -1
-                        || contact.lastName.toLowerCase().indexOf(loweredSearch) !== -1
-                        || contact.phoneNumber.toLowerCase().indexOf(loweredSearch) !== -1;
-                })
-            },
             checkPhoneExist: function (phoneNumber) {
                 var loweredPhoneNumber = phoneNumber.toLowerCase();
 
@@ -154,17 +141,6 @@
                 this.isPhoneExist = null;
                 this.addedContacts++;
             },
-            getCheckedIds: function() {
-                var result = [];
-
-                this.contacts.forEach(function (contact) {
-                    if (contact.isChecked) {
-                        result.push(contact.id);
-                    }
-                });
-
-                return result;
-            },
             setRemoveTargets: function (targets) {
                 this.removeTargets.ids = targets;
                 this.removeTargets.isExist = true;
@@ -178,6 +154,32 @@
 
                     self.contacts.splice(removeIndex, 1);
                 })
+            }
+        },
+        computed: {
+            searchedContacts: function () {
+                if (this.search === "") {
+                    return this.contacts;
+                }
+
+                var loweredSearch = this.search.toLowerCase();
+
+                return this.contacts.filter(function (contact) {
+                    return contact.firstName.toLowerCase().indexOf(loweredSearch) !== -1
+                        || contact.lastName.toLowerCase().indexOf(loweredSearch) !== -1
+                        || contact.phoneNumber.toLowerCase().indexOf(loweredSearch) !== -1;
+                });
+            },
+            checkedIds: function () {
+                var result = [];
+
+                this.contacts.forEach(function (contact) {
+                    if (contact.isChecked) {
+                        result.push(contact.id);
+                    }
+                });
+
+                return result;
             }
         },
         watch: {
