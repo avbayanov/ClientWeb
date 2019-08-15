@@ -134,7 +134,7 @@
                 });
             },
             addContact: function (contact) {
-                this.contacts.push(Object.assign({
+                this.contacts.push(_.extend({
                     id: this.addedContacts
                 }, contact));
 
