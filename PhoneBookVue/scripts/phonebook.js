@@ -171,15 +171,11 @@
                 });
             },
             checkedIds: function () {
-                var result = [];
-
-                this.contacts.forEach(function (contact) {
-                    if (contact.isChecked) {
-                        result.push(contact.id);
-                    }
+                return this.contacts.filter(function (contact) {
+                    return contact.isChecked;
+                }).map(function (contact) {
+                    return contact.id;
                 });
-
-                return result;
             }
         },
         watch: {
