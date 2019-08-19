@@ -27,7 +27,7 @@
             <div class="row">
                 <div class="col">
                     <add-contact-form :is-phone-exist="isPhoneExist" @check-phone-exist="checkPhoneExist"
-                                      @add-contact="addContact">
+                                      @set-is-phone-exist-null="isPhoneExist = null" @add-contact="addContact">
                     </add-contact-form>
                 </div>
             </div>

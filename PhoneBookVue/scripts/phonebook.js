@@ -57,6 +57,7 @@
                 }
 
                 if (!this.checkInputs() || this.isPhoneExist) {
+                    this.$emit("set-is-phone-exist-null");
                     return;
                 }
 
