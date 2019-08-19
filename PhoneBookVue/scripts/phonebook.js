@@ -185,15 +185,10 @@
                     return;
                 }
 
-                if (this.checkAll === true) {
-                    this.contacts.forEach(function (contact) {
-                        contact.isChecked = true;
-                    });
-                } else {
-                    this.contacts.forEach(function (contact) {
-                        contact.isChecked = false;
-                    });
-                }
+                var self = this;
+                this.contacts.forEach(function (contact) {
+                    Vue.set(contact, "isChecked", self.checkAll);
+                })
             },
             contacts: function () {
                 if (this.checkAll) {
