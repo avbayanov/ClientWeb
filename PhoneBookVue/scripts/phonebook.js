@@ -180,6 +180,9 @@
             }
         },
         watch: {
+            isSidebarActive: function () {
+                $("#sidebarCollapse").button("toggle");
+            },
             checkAll: function () {
                 if (this.checkAllFalsedByContactsWatcher) {
                     this.checkAllFalsedByContactsWatcher = false;
