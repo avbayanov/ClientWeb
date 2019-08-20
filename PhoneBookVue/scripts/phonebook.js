@@ -149,7 +149,7 @@
             removeContacts: function () {
                 var self = this;
                 this.removeTargets.ids.forEach(function (id) {
-                    var removeIndex = self.contacts.findIndex(function (contact) {
+                    var removeIndex = _.findIndex(self.contacts, function (contact) {
                         return contact.id === id;
                     });
 
