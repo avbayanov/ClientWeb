@@ -1,0 +1,53 @@
+.vertical-nav {
+    min-width: 15rem;
+    width: 15rem;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s;
+    background-color: #fff;
+    z-index: 500;
+    /* for scrolling on very small height */
+    overflow-y: auto;
+    bottom: 0;
+}
+
+.page-content {
+    width: calc(100% - 15rem);
+    margin-left: 15rem;
+    transition: all 0.4s;
+}
+
+@media (max-width: 768px) {
+    .vertical-nav {
+        margin-left: -15rem;
+    }
+    .vertical-nav.active {
+        margin-left: 0;
+    }
+    .page-content {
+        width: 100%;
+        margin: 0;
+    }
+    .page-content.active {
+        margin-left: 15rem;
+        width: calc(100% - 15rem);
+    }
+
+    html, body {
+        margin: 0; width: 100%; overflow-x: hidden
+    }
+}
+
+/* Collapse button and its behavior*/
+
+@media (min-width: 768px) {
+    .sidebarCollapse {
+        display: none;
+    }
+    .navbar-brand {
+        min-width: 14rem;
+    }
+}
