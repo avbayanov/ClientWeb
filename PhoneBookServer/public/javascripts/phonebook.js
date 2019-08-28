@@ -267,8 +267,6 @@
                 })
             },
             contacts: function () {
-
-
                 if (this.checkAll) {
                     this.checkAllFalsedByContactsWatcher = true;
                 }
