@@ -245,3 +245,59 @@
         }
     };
 </script>
+
+<style lang="scss">
+    @import "../stylesheets/sidebar";
+
+    [v-cloak] {
+        display: none;
+    }
+
+    .topbar-indent {
+        padding-top: 4.5em;
+    }
+
+    @media (max-width: 576px) {
+        .topbar-indent {
+            padding-top: 7.5em;
+        }
+    }
+
+    .page-content {
+        padding-top: 3.5em;
+    }
+
+    @media (max-width: 576px) {
+        .page-content {
+            padding-top: 6.5em;
+        }
+    }
+
+    td.delete-button > div, td.delete-check > div, th.delete-check > div {
+        display: flex;
+    }
+
+    td.delete-button > div > button {
+        margin: -3px auto 0;
+    }
+
+    td.delete-check input {
+        margin: 5px auto 0;
+    }
+
+    th.delete-check input {
+        margin: -17px auto 0;
+    }
+
+    td.delete-check input, th.delete-check input {
+        cursor: pointer;
+    }
+
+    .batch-delete-popup-push {
+        margin-bottom: 3.4em;
+    }
+
+    .loading {
+        margin-top: 1em;
+    }
+</style>

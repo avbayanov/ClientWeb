@@ -1,8 +1,4 @@
-$sidebarWidth: 15rem;
-
-@mixin fullWidthWithoutSidebar {
-    width: calc(100% - #{$sidebarWidth});
-}
+@import "sidebarWidth";
 
 .vertical-nav {
     min-width: $sidebarWidth;

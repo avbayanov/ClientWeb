@@ -21,3 +21,48 @@
         }
     };
 </script>
+
+<style lang="scss">
+    @import "../stylesheets/sidebarWidth";
+
+    .batch-delete-popup {
+        position: fixed;
+        left: $sidebarWidth;
+        bottom: 0;
+        z-index: 50;
+
+        @include fullWidthWithoutSidebar;
+
+        background-color: #fff;
+        box-shadow:0 0 10px rgba(0, 0, 0, 0.1);
+        transition: all 0.4s;
+    }
+
+    @media (max-width: 768px) {
+        .batch-delete-popup {
+            left: 0;
+            width: 100%;
+        }
+
+        .batch-delete-popup.active {
+            left: $sidebarWidth;
+            @include fullWidthWithoutSidebar;
+        }
+    }
+
+    .batch-delete-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+        align-content: space-around;
+    }
+
+    .batch-delete-text {
+        margin: 14px 0;
+    }
+
+    .batch-delete-button {
+        padding: 6px;
+    }
+</style>
