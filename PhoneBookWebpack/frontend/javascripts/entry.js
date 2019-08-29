@@ -4,11 +4,11 @@ import "../stylesheets/phonebook.scss";
 import Vue from "vue";
 import "bootstrap";
 
-import phonebookComponent from "./phonebook.vue";
+import PhonebookComponent from "./Phonebook.vue";
 
 new Vue({
     el: "#app",
     components: {
-        "phonebook": phonebookComponent
+        "phonebook": PhonebookComponent
     }
 });

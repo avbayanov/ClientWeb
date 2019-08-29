@@ -101,9 +101,9 @@
 
     import phonebookService from "./phonebookService";
 
-    import addContactFormComponent from "./addContactForm.vue";
-    import batchRemovePopupComponent from "./batchRemovePopup.vue";
-    import removeModalComponent from "./removeModal.vue";
+    import AddContactFormComponent from "./AddContactForm.vue";
+    import BatchRemovePopupComponent from "./BatchRemovePopup.vue";
+    import RemoveModalComponent from "./RemoveModal.vue";
 
     export default {
         data() {
@@ -239,9 +239,9 @@
             this.loadContacts();
         },
         components: {
-            "add-contact-form": addContactFormComponent,
-            "batch-remove-popup": batchRemovePopupComponent,
-            "remove-modal": removeModalComponent
+            "add-contact-form": AddContactFormComponent,
+            "batch-remove-popup": BatchRemovePopupComponent,
+            "remove-modal": RemoveModalComponent
         }
     };
 </script>
