@@ -32,7 +32,7 @@
             hideModal: function () {
                 $("#remove-contacts-modal").modal("hide");
             },
-            doRemove: function () {
+            doRemove() {
                 this.$emit("remove-contacts");
                 this.hideModal();
             }
